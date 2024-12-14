@@ -1,10 +1,10 @@
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:pixel_legends_5_vs_5/UI/components/assets.dart';
+import 'package:pixel_legends_5_vs_5/UI/login_screen/login_screen.dart';
+import 'package:pixel_legends_5_vs_5/utils/static_params.dart';
 
 class LoadingScreen extends Component {
-  late final Sprite loadingSprite;
-  late final Vector2 size;
   double elapsed = 0;
 
   @override
@@ -26,6 +26,7 @@ class LoadingScreen extends Component {
     elapsed += dt;
     if (elapsed > 3 && isLoaded) {
       removeFromParent();
+      findGame()!.world.add(LoginScreen());
     }
   }
 }
