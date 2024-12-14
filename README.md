@@ -1,3 +1,3 @@
-# pixel_legends_5_vs_5
+# PIZEL LEGENDS 5 VS 5
 
-A new Flutter project.
+A pixelated 5 vs 5 moba game.
