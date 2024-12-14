@@ -1,28 +1,28 @@
 import 'package:flame/components.dart';
-import 'package:flame/layout.dart';
-import 'package:flutter/material.dart';
+import 'package:flame/flame.dart';
+import 'package:pixel_legends_5_vs_5/UI/components/assets.dart';
 
-class LoadingScreen extends PositionComponent {
+class LoadingScreen extends Component {
+  late final Sprite loadingSprite;
+  late final Vector2 size;
   @override
   Future<void> onLoad() async {
     super.onLoad();
+    final loadingScreenBgImage = await Flame.images.load(loadingScreenBg.path);
+    final loadingScreenBgSprite = SpriteComponent.fromImage(
+        loadingScreenBgImage,
+        size: size,
+        position: loadingScreenBg.getPositionFitWidth(size),
+        scale: loadingScreenBg.getScaleFitWidth(size));
+    add(loadingScreenBgSprite);
+  }
 
-    final scoreText = AlignComponent(
-      alignment: Anchor.center,
-      child: TextComponent(
-        text: 'PIXEL LEGENDS 5 VS 5',
-        textRenderer: TextPaint(
-          style: const TextStyle(color: Colors.black, fontSize: 24),
-        ),
-      ),
-    );
-    add(scoreText);
-
-    add(RectangleComponent()
-      ..size = size
-      ..paint = Paint()
-      ..setColor(const Color(0xFF00FF00)));
-
-    add(scoreText);
+  @override
+  void update(double dt) {
+    // any loading activity
+    if (isLoaded) {
+      // removeFromParent();
+      // redirecting to next page
+    }
   }
 }
