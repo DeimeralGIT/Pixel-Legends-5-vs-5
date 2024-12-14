@@ -5,6 +5,8 @@ import 'package:pixel_legends_5_vs_5/UI/components/assets.dart';
 class LoadingScreen extends Component {
   late final Sprite loadingSprite;
   late final Vector2 size;
+  double elapsed = 0;
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
@@ -12,17 +14,18 @@ class LoadingScreen extends Component {
     final loadingScreenBgSprite = SpriteComponent.fromImage(
         loadingScreenBgImage,
         size: size,
-        position: loadingScreenBg.getPositionFitWidth(size),
-        scale: loadingScreenBg.getScaleFitWidth(size));
+        position: loadingScreenBg.getPositionFitCover(size),
+        scale: loadingScreenBg.getScaleFitCover(size));
     add(loadingScreenBgSprite);
   }
 
   @override
   void update(double dt) {
-    // any loading activity
-    if (isLoaded) {
-      // removeFromParent();
-      // redirecting to next page
+    super.update(dt);
+
+    elapsed += dt;
+    if (elapsed > 3 && isLoaded) {
+      removeFromParent();
     }
   }
 }
