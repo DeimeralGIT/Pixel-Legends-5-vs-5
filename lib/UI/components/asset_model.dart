@@ -25,8 +25,8 @@ class AssetModel {
   }) {
     if (size == null) return null;
     return Vector2(
-      (width - size.x) / 2 + left - right,
-      (height - size.y) / 2 + top - bottom,
+      ((width - size.x) / 2) + left - right,
+      ((height - size.y) / 2) + top - bottom,
     );
   }
 }
