@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flame/game.dart';
 
 class AssetModel {
@@ -13,7 +15,8 @@ class AssetModel {
 
   Vector2? getScaleFitCover(Vector2? size) {
     if (size == null) return null;
-    return Vector2(size.x / width, size.x / width);
+    final coefficient = max(size.x / width, size.y / height);
+    return Vector2(coefficient, coefficient);
   }
 
   Vector2? getPositionFitCover(

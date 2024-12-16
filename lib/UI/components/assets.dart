@@ -11,3 +11,9 @@ const loginScreenBg = AssetModel(
   width: 832,
   height: 448,
 );
+
+const inputBg = AssetModel(
+  path: 'input_bg.png',
+  width: 832,
+  height: 448,
+);
